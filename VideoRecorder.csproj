@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A903A8C4-4B5E-4C48-A8EC-7BACCA677DEE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>VideoRecorder</RootNamespace>
+    <AssemblyName>VideoRecorder</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <HintPath>packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Registry, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Win32.Registry.4.7.0\lib\net461\Microsoft.Win32.Registry.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio, Version=2.0.1.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>packages\NAudio.2.0.1\lib\netstandard2.0\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.Asio, Version=2.0.0.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>packages\NAudio.Asio.2.0.0\lib\netstandard2.0\NAudio.Asio.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>packages\NAudio.Core.2.0.0\lib\netstandard2.0\NAudio.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.Midi, Version=2.0.1.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>packages\NAudio.Midi.2.0.1\lib\netstandard2.0\NAudio.Midi.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.Wasapi, Version=2.0.0.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>packages\NAudio.Wasapi.2.0.0\lib\netstandard2.0\NAudio.Wasapi.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.WinForms, Version=2.0.1.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>packages\NAudio.WinForms.2.0.1\lib\net472\NAudio.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.WinMM, Version=2.0.1.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>packages\NAudio.WinMM.2.0.1\lib\netstandard2.0\NAudio.WinMM.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security.AccessControl, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.AccessControl.4.7.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Principal.Windows.4.7.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="helperclasses\AudioRecordHelper.cs" />
+    <Compile Include="helperclasses\ffmpegHelper.cs" />
+    <Compile Include="helperclasses\FileHelper.cs" />
+    <Compile Include="helperclasses\RecordHelper.cs" />
+    <Compile Include="helperclasses\VideoRecordHelper.cs" />
+    <Compile Include="models\CameraQualityModel.cs" />
+    <Compile Include="models\DeviceModel.cs" />
+    <Compile Include="viewmodels\VideoRecorderViewModel.cs" />
+    <Compile Include="views\VideoRecorderView.xaml.cs">
+      <DependentUpon>VideoRecorderView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="views\VideoRecorderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="images\Thumbs.db" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\account-36-white.png" />
+    <Resource Include="images\account-36.png" />
+    <Resource Include="images\accounts-36-white.png" />
+    <Resource Include="images\accounts-36.png" />
+    <Resource Include="images\add-user-36-white.png" />
+    <Resource Include="images\add-user-36.png" />
+    <Resource Include="images\alert-36-red.png" />
+    <Resource Include="images\alert-36-white.png" />
+    <Resource Include="images\alert-36.png" />
+    <Resource Include="images\android-36.png" />
+    <Resource Include="images\android-white.png" />
+    <Resource Include="images\apple-36-white.png" />
+    <Resource Include="images\apple-36.png" />
+    <Resource Include="images\audio-36-white.png" />
+    <Resource Include="images\audio-36.png" />
+    <Resource Include="images\block-microphone-36-white.png" />
+    <Resource Include="images\block-microphone-36.png" />
+    <Resource Include="images\call-36.png" />
+    <Resource Include="images\call-white-36.png" />
+    <Resource Include="images\camera-36-white.png" />
+    <Resource Include="images\camera-36.png" />
+    <Resource Include="images\chat-36-white.png" />
+    <Resource Include="images\chat-36.png" />
+    <Resource Include="images\checkmark-36-white.png" />
+    <Resource Include="images\checkmark-36.png" />
+    <Resource Include="images\chevron-down-36-white.png" />
+    <Resource Include="images\chevron-down-36.png" />
+    <Resource Include="images\close-36-white.png" />
+    <Resource Include="images\close-36.png" />
+    <Resource Include="images\color-dropper-36-white.png" />
+    <Resource Include="images\color-dropper-36.png" />
+    <Resource Include="images\copy-36-white.png" />
+    <Resource Include="images\copy-36.png" />
+    <Resource Include="images\copy-black-36.png" />
+    <Resource Include="images\database-36-white.png" />
+    <Resource Include="images\database-36.png" />
+    <Resource Include="images\delete-black-bin-36.png" />
+    <Resource Include="images\delete-message-36-white.png" />
+    <Resource Include="images\delete-message-36.png" />
+    <Resource Include="images\delivery-time-36-white.png" />
+    <Resource Include="images\delivery-time-36.png" />
+    <Resource Include="images\devices-36-white.png" />
+    <Resource Include="images\devices-36.png" />
+    <Resource Include="images\do-not-disturb-36.png" />
+    <Resource Include="images\do-not-disturb-white-36.png" />
+    <Resource Include="images\doc-36-white.png" />
+    <Resource Include="images\doc-36.png" />
+    <Resource Include="images\double-tick-36-white.png" />
+    <Resource Include="images\double-tick-36.png" />
+    <Resource Include="images\download-from-cloud-36-white.png" />
+    <Resource Include="images\download-from-cloud-36.png" />
+    <Resource Include="images\download-mail-36-white.png" />
+    <Resource Include="images\download-mail-36.png" />
+    <Resource Include="images\downloads-folder-36-white.png" />
+    <Resource Include="images\downloads-folder-36.png" />
+    <Resource Include="images\edit-36-white.png" />
+    <Resource Include="images\edit-36.png" />
+    <Resource Include="images\email-send-36-white.png" />
+    <Resource Include="images\email-send-36.png" />
+    <Resource Include="images\end-call-36-white.png" />
+    <Resource Include="images\end-call-36.png" />
+    <Resource Include="images\excel-36-white.png" />
+    <Resource Include="images\excel-36.png" />
+    <Resource Include="images\exe-36-white.png" />
+    <Resource Include="images\exe-36.png" />
+    <Resource Include="images\exit-36-white.png" />
+    <Resource Include="images\exit-36.png" />
+    <Resource Include="images\external-link-36-white.png" />
+    <Resource Include="images\external-link-36.png" />
+    <Resource Include="images\file-36-white.png" />
+    <Resource Include="images\file-36.png" />
+    <Resource Include="images\file-preview-36-white.png" />
+    <Resource Include="images\file-preview-36.png" />
+    <Resource Include="images\files-36-white.png" />
+    <Resource Include="images\files-36.png" />
+    <Resource Include="images\grid-36-white.png" />
+    <Resource Include="images\grid-36.png" />
+    <Resource Include="images\image-150-white.png" />
+    <Resource Include="images\image-150.png" />
+    <Resource Include="images\image-36-white.png" />
+    <Resource Include="images\image-36.png" />
+    <Resource Include="images\images-36-white.png" />
+    <Resource Include="images\images-36.png" />
+    <Resource Include="images\incoming-call-36-white.png" />
+    <Resource Include="images\incoming-call-36.png" />
+    <Resource Include="images\info-36-white.png" />
+    <Resource Include="images\info-36.png" />
+    <Resource Include="images\json-36-white.png" />
+    <Resource Include="images\json-36.png" />
+    <Resource Include="images\menu-vertical-36-white.png" />
+    <Resource Include="images\menu-vertical-36.png" />
+    <Resource Include="images\microphone-36-white.png" />
+    <Resource Include="images\microphone-36.png" />
+    <Resource Include="images\minus-1-month-36-white.png" />
+    <Resource Include="images\minus-1-month-36.png" />
+    <Resource Include="images\minus-1-week-36-white.png" />
+    <Resource Include="images\minus-1-week-36.png" />
+    <Resource Include="images\minus-1-year-36-white.png" />
+    <Resource Include="images\minus-1-year-36.png" />
+    <Resource Include="images\musical-notes-100-white.png" />
+    <Resource Include="images\musical-notes-100.png" />
+    <Resource Include="images\musical-notes-36-white.png" />
+    <Resource Include="images\musical-notes-36.png" />
+    <Resource Include="images\next-image-36-white.png" />
+    <Resource Include="images\next-image-36.png" />
+    <Resource Include="images\no-video-36-white.png" />
+    <Resource Include="images\no-video-36.png" />
+    <Resource Include="images\outgoing-call-36-white.png" />
+    <Resource Include="images\outgoing-call-36.png" />
+    <Resource Include="images\pause-36-white.png" />
+    <Resource Include="images\pause-36.png" />
+    <Resource Include="images\pdf-36-white.png" />
+    <Resource Include="images\pdf-36.png" />
+    <Resource Include="images\pencil-36-white.png" />
+    <Resource Include="images\pencil-36.png" />
+    <Resource Include="images\phone-36-white.png" />
+    <Resource Include="images\phone-36.png" />
+    <Resource Include="images\play-150-white-dark.png" />
+    <Resource Include="images\play-36-white-dark.png" />
+    <Resource Include="images\play-36-white.png" />
+    <Resource Include="images\play-36.png" />
+    <Resource Include="images\plus-36-white.png" />
+    <Resource Include="images\plus-36.png" />
+    <Resource Include="images\powerpoint-36-white.png" />
+    <Resource Include="images\powerpoint-36.png" />
+    <Resource Include="images\prev-image-36-white.png" />
+    <Resource Include="images\prev-image-36.png" />
+    <Resource Include="images\qr-code-36-white.png" />
+    <Resource Include="images\qr-code-36.png" />
+    <Resource Include="images\question-mark-36-white.png" />
+    <Resource Include="images\question-mark-36.png" />
+    <Resource Include="images\rar-36-white.png" />
+    <Resource Include="images\rar-36.png" />
+    <Resource Include="images\record-36-white.png" />
+    <Resource Include="images\record-36.png" />
+    <Resource Include="images\record-audio-36-white.png" />
+    <Resource Include="images\record-audio-36.png" />
+    <Resource Include="images\recording-90.png" />
+    <Resource Include="images\redo-36-white.png" />
+    <Resource Include="images\redo-36.png" />
+    <Resource Include="images\refresh-36-white.png" />
+    <Resource Include="images\refresh-36.png" />
+    <Resource Include="images\remove-36-white.png" />
+    <Resource Include="images\remove-36.png" />
+    <Resource Include="images\reply-arrow-36-white.png" />
+    <Resource Include="images\reply-arrow-36.png" />
+    <Resource Include="images\resume-36-white.png" />
+    <Resource Include="images\resume-36.png" />
+    <Resource Include="images\return-36-white.png" />
+    <Resource Include="images\return-36.png" />
+    <Resource Include="images\right-black-arrow-36.png" />
+    <Resource Include="images\rotate-left-36-white.png" />
+    <Resource Include="images\rotate-left-36.png" />
+    <Resource Include="images\rotate-right-36-white.png" />
+    <Resource Include="images\rotate-right-36.png" />
+    <Resource Include="images\save-as-36-white.png" />
+    <Resource Include="images\save-as-36.png" />
+    <Resource Include="images\schedule-36-white.png" />
+    <Resource Include="images\schedule-36.png" />
+    <Resource Include="images\search-36-white.png" />
+    <Resource Include="images\search-36.png" />
+    <Resource Include="images\selfdestroy-36-white.png" />
+    <Resource Include="images\selfdestroy-36.png" />
+    <Resource Include="images\settings-36-white.png" />
+    <Resource Include="images\settings-36.png" />
+    <Resource Include="images\site-36-white.png" />
+    <Resource Include="images\site-36.png" />
+    <Resource Include="images\splash.png" />
+    <Resource Include="images\stop-36-white.png" />
+    <Resource Include="images\stop-36.png" />
+    <Resource Include="images\tar-36-white.png" />
+    <Resource Include="images\tar-36.png" />
+    <Resource Include="images\txt-36-white.png" />
+    <Resource Include="images\txt-36.png" />
+    <Resource Include="images\undo-36-white.png" />
+    <Resource Include="images\undo-36.png" />
+    <Resource Include="images\unread-messages-36-white.png" />
+    <Resource Include="images\unread-messages-36.png" />
+    <Resource Include="images\user-group-36-white.png" />
+    <Resource Include="images\user-group-36.png" />
+    <Resource Include="images\video-100-white.png" />
+    <Resource Include="images\video-100.png" />
+    <Resource Include="images\video-36-white.png" />
+    <Resource Include="images\video-36.png" />
+    <Resource Include="images\video-call-36-white.png" />
+    <Resource Include="images\video-call-36.png" />
+    <Resource Include="images\windows-36-white.png" />
+    <Resource Include="images\windows-36.png" />
+    <Resource Include="images\word-36-white.png" />
+    <Resource Include="images\word-36.png" />
+    <Resource Include="images\xml-36-white.png" />
+    <Resource Include="images\xml-36.png" />
+    <Resource Include="images\zip-36-white.png" />
+    <Resource Include="images\zip-36.png" />
+    <Resource Include="images\zoom-in-36-white.png" />
+    <Resource Include="images\zoom-in-36.png" />
+    <Resource Include="images\zoom-out-36-white.png" />
+    <Resource Include="images\zoom-out-36.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
